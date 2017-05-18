@@ -7,7 +7,7 @@
 			.main{position:relative;margin:0 auto;font-size:0;}
 			.box{display:inline-block;float:left;padding:6px;}
 			.pic{padding:5px;border:1px solid #ddd;border-radius:5px;}	
-			.pic img{width:200px;}					
+			.pic img{width:200px;height:auto;}					
 		</style>
 	</head>
 	<body>
@@ -114,7 +114,7 @@
 			</div>
 		</div>
 		<script>
-			(function(){
+			window.onload=function(){
 				waterfall();
 				window.onresize=waterfall;
 				function waterfall(){
@@ -166,7 +166,7 @@
 						}
 					}
 				}				
-			}())
+			}
 		</script>
 	</body>
 </html>
