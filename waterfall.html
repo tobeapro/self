@@ -139,17 +139,14 @@
 							hArray[j]=aBox[j].offsetHeight;
 							
 						}else{
-							var height=getMin(hArray)
-							console.log(height)
+							var height=getMin(hArray);
 							var index=getIndex(height,hArray);
-							console.log(index);
 							aBox[j].style.position="absolute";
 							aBox[j].style.left=index*boxWidth+"px";
 							aBox[j].style.top=hArray[index]+"px";
 							hArray[index]+=aBox[j].offsetHeight;
 						}
 					}
-					console.log(hArray)
 				}	
 				function getMin(array){
 					var min=array[0]
