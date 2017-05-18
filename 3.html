@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.main{position:relative;margin:0 auto;font-size:0;}
+			.box{display:inline-block;float:left;padding:6px;}
+			.pic{padding:5px;border:1px solid #ddd;border-radius:5px;}	
+			.pic img{width:200px;}					
+		</style>
+	</head>
+	<body>
+		<div id="main" class="main">
+			<div class="box">		
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/1.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/2.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/3.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/4.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/5.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/6.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/7.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/8.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/9.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/10.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/11.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/12.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/13.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/14.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/15.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/16.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro/tobeapro.github.io/img/17.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/18.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/19.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="http://tobeapro.github.io/img/20.jpg">
+				</div>
+			</div>
+		</div>
+		<script>
+			(function(){
+				waterfall();
+				window.onresize=waterfall;
+				function waterfall(){
+					var Mwidth=document.documentElement.clientWidth||document.body.clientWidth;
+					var rowNum=Math.floor(Mwidth/224);
+					console.log(rowNum);
+					var main=document.getElementById("main");
+					main.style.width=rowNum*224+"px";
+					var aChild=main.getElementsByTagName("*");
+					var aBox=[];
+					for(var i=0;i<aChild.length;i++){
+						if(aChild[i].className=="box"){
+							aBox.push(aChild[i]);
+						}
+					}
+					console.log(aBox)
+					var hArray=[];
+					for(var j=0;j<aBox.length;j++){
+						if(j<rowNum){
+							aBox[j].style.position="static";
+							hArray[j]=aBox[j].offsetHeight;
+							
+						}else{
+							var height=getMin(hArray)
+							console.log(height)
+							var index=getIndex(height,hArray);
+							console.log(index);
+							aBox[j].style.position="absolute";
+							aBox[j].style.left=index*224+"px";
+							aBox[j].style.top=hArray[index]+"px";
+							hArray[index]+=aBox[j].offsetHeight;
+						}
+					}
+					console.log(hArray)
+				}	
+				function getMin(array){
+					var min=array[0]
+					for(var i=0;i<array.length;i++){
+						if(min>array[i]){
+							min=array[i];
+						}
+					}
+					return min;
+				}
+				function getIndex(val,array){
+					for(var k=0;k<array.length;k++){
+						if(array[k]==val){
+							return k
+						}
+					}
+				}				
+			}())
+		</script>
+	</body>
+</html>
