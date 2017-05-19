@@ -8,7 +8,7 @@
 			.main{position:relative;margin:0 auto;font-size:0;}
 			.box{float:left;padding:6px;}
 			.pic{padding:2px;border:1px solid #ddd;border-radius:5px;box-shadow:0 0 5px #ccc;}	
-			.pic img{width:260px;height:auto;}					
+			.pic img{width:300px;height:auto;}					
 		</style>
 	</head>
 	<body>
@@ -113,11 +113,66 @@
 					<img src="http://a1.qpic.cn/psb?/V10ckHGk1fKzD7/hVs6XbwtiBEwNPLfcAXbB0ioFfrMi88n09XgsbnhWt8!/m/dBgBAAAAAAAAnull&bo=FAIsAQAAAAARBws!&rf=photolist&t=5">
 				</div>
 			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="img/1.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="img/2.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="img/3.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="img/4.jpg">
+				</div>
+			</div>
+			<div class="box">	
+				<div class="pic">
+					<img src="img/5.jpg">
+				</div>
+			</div>
 		</div>
 		<script>
+			var data=["6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg"];
 			window.onload=function(){
 				waterfall();
-				window.onresize=waterfall; 				
+				window.onresize=waterfall; 		
+			}
+			window.onscroll=function(){
+				var main=document.getElementById("main")
+				var adiv=main.getElementsByTagName("*");
+				var abox=[];
+				for(var j=0;j<adiv.length;j++){
+					if(adiv[j].className=="box"){
+						abox.push(adiv[j])
+					}
+				}
+				var lbox=abox[abox.length-1];
+				var bheight=lbox.offsetHeight+lbox.offsetTop;
+				var wheight=document.body.clientHeight||document.documentElement.clientHeight;
+				var stop=document.body.scrollTop||document.documentElement.scrollTop;
+				console.log(wheight);
+				if(wheight+stop>=bheight){
+					for(var i=0;i<data.length;i++){
+						var box=document.createElement("div");
+						box.className="box";
+						var pic=document.createElement("div");
+						pic.className="pic";
+						box.appendChild(pic);
+						var img=document.createElement("img");
+						img.src="img/"+data[i];
+						pic.appendChild(img);
+						main.appendChild(box);
+					}
+				}
+				waterfall();
 			}
 			function waterfall(){
 					var main=document.getElementById("main");
