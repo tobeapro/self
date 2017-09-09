@@ -1,32 +1,113 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style>
-			.box{position:relative;left:200px;top:200px;width:200px;height:200px;transform-style: preserve-3d; }
-			.box div{position:absolute;width:200px;height:200px;top:0;left:0}
-			.box div:nth-child(1){background:red;transform: translateZ(100px)}
-			.box div:nth-child(2){background:blue;transform: translateX(-100px) rotateY(90deg)}
-			.box div:nth-child(3){background:green;transform: translateX(100px) rotateY(90deg)}
-			.box div:nth-child(4){background:black;transform: translateY(-100px) rotateX(90deg)}
-			.box div:nth-child(5){background:orange;transform: translateY(100px) rotateX(90deg)}
-			.box div:nth-child(6){background:yellow;transform: translateZ(-100px)}
-			#box{animation: play 4s infinite  linear;}
-			@keyframes play{
-				from{transform: rotateY(0deg) rotateX(0deg)}
-				to{transform:rotateY(360deg) rotateX(360deg)}
-			}
-		</style>
-	</head>
-	<body>
-		<div class="box" id="box">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>html</title>
+    <style>
+   		 *{margin:0;padding:0}
+        .box{position:relative;
+            top:200px;
+            left:50%;
+            width:200px;
+            height:200px;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            animation:box 6s infinite linear;
+            }
+        .box div{position:absolute;top:0;left:0;width:200px;height:200px;line-height:200px;text-align:center;opacity:0.8;color:#fff;font-size:30px;font-weight:bolder;}
+        .box div:nth-child(1){background:red;transform:translateX(-100px) rotateY(90deg);}
+        .box div:nth-child(2){background:green;transform:translateX(100px) rotateY(90deg);}
+        .box div:nth-child(3){background:blue;transform:translateY(100px) rotateX(90deg);}
+        .box div:nth-child(4){background:orchid;transform:translateY(-100px) rotateX(90deg);}
+        .box div:nth-child(5){background:orange;transform:translateZ(100px);}
+        .box div:nth-child(6){background:yellow;transform:translateZ(-100px);}
+        @keyframes box{
+            from {transform:translateX(-50%) rotateX(30deg) rotateY(30deg)}
+            to {transform:translateX(-50%) rotateX(390deg) rotateY(390deg)}
+        }
+	
+		.banner{margin:20px auto;width:120px;}	
+		.center{height:30px;line-height:30px;text-align:center;font-size:14px;color:#fff;background:deepskyblue;border-radius:4px;cursor:pointer;}
+		.center:after{
+			content:"";
+			display:inline-block;
+			vertical-align:middle;
+			margin-left:10px;			
+			border:6px solid transparent;
+			border-top-color:#fff;
+			transition:0.5s;
+		}
+		.list{left:0;
+			  top:-1000px;
+			  position: absolute;
+			  list-style:none;
+			  width:100%;
+			  opacity:0;
+			  transition:transform .6s,opacity .6s;
+			  }
+		.list li{position:relative;
+				 width:100%;
+				 height:30px;
+				 line-height:30px;
+				 border-top:1px solid #ddd;
+				 border-left:1px solid #ddd;
+				 border-right:1px solid #ddd;
+				 text-align:center;
+				 font-size:14px;
+				 font-weight:bold;
+				 color:#ccc;
+				 background:#fff;
+				 cursor:pointer;
+				 transition:.6s;
+				 }
+		.list li:first-child{border-top-left-radius:4px;border-top-right-radius:4px;}
+		.list li:first-child:before{display:inline-block;
+									content:"";
+									width:10px;
+									height:10px;
+									border-top:1px solid #ddd;
+									border-left:1px solid #ddd;
+									background:#fff;
+									position:absolute;
+									top:-2px;
+									left:50%;
+									z-index:100;
+									transition:.6s;
+									transform:rotate(45deg) translateX(-50%)
+									}
+		.list li:last-child{border-bottom:1px solid #ddd;border-bottom-left-radius:4px;border-bottom-right-radius:4px;}
+		.banner:hover .center:after{transform:rotate(180deg);margin-top:-10px;}
+		.banner:hover .center{background:dodgerblue;}
+		.banner:hover .list{position: static;opacity:1;transform: translateY(20px);}		
+		.list li:hover{color:#fff;background:deepskyblue;}
+		.list li:first-child:hover:before{background:deepskyblue;}
+    </style>
+</head>
+<body>
+<div style="float:left;margin:10px;height:600px;width:800px;border:1px solid #ddd">
+	<div class="box">
+	    <div>1</div>
+	    <div>2</div>
+	    <div>3</div>
+	    <div>4</div>
+	    <div>5</div>
+	    <div>6</div>
+	</div>
+</div>
+<div style="float:left;margin:10px;height:600px;width:800px;border:1px solid #ddd">
+	<div class="banner">
+		<h4 class="center">菜单</h4>
+		<ul class="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+	</div>
+</div>
+</body>
 </html>
