@@ -20,7 +20,7 @@ body{
 input,button,textarea,td,th,select{outline:none;}
 table {border-collapse:collapse;border-spacing:0;}
 ol,ul{list-style: none;}
-a,a:hover,a:visited,a:active,a:link{text-decoration:none;}
+a,a:visited,a:active,a:link{text-decoration:none;}
 .clearFl:after{
 	content:'';
 	display:block;

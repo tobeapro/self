@@ -4,59 +4,49 @@
 	top:0;
 	left:0;
 	right:0;
-	background:#fff;
-	box-shadow:0 2px 20px #000;
+	background:rgba(255,255,255,.8);
+	box-shadow:0 2px 10px #000;
 	border:none;
-	border-radius:0;
 }
-.cus-navbar .navbar-header{
-	border-bottom:1px solid #ddd;
-}
-.cus-navbar .navbar-brand{
-	color:#03b0f3;
+.cus-navbar .home{
+	float:left;
+	padding:0 12px;
+	height:50px;
+	line-height:50px;
+	font-size:16px;
+	color:#057bf7;
 	border-radius:6px;
 	transition:all .2s linear;
 }
-.cus-navbar .navbar-brand .fa{
+.cus-navbar .fa{
 	margin-right:6px;
 }
-.cus-navbar .navbar-brand:hover{
-	color:#147bed;
-	background:rgba(8,171,240,.2);
+.cus-navbar .navbar-ul{
+	float:right;
 }
-.cus-navbar .navbar-toggle{
-	border-color:#777;
-	background:#fff;
-}
-.cus-navbar .navbar-toggle:hover{
-	border-color:#0cf800;
-}
-.cus-navbar .navbar-toggle .icon-bar{
-	background-color:#777;
-}
-.cus-navbar .navbar-toggle:hover .icon-bar{
-	background-color:#0cf800;
-}
-.cus-navbar .navbar-nav>li{
+.cus-navbar .navbar-ul>li{
+	display:inline-block;	
 	padding:0 20px;
 }
-.cus-navbar .navbar-nav>li>a{
-	padding-bottom:6px;
-	color:#777;	
+.cus-navbar .navbar-ul>li>a{
+	display:inline-block;
+	padding:0 10px;
+	line-height:40px;
+	color:#000;	
 	font-size:14px;
 	font-weight:bold;
 	text-align:center;
-	background:transparent !important;
+	border-bottom:4px solid transparent;
 }
-.cus-navbar .navbar-nav>li.active>a{
-	color:#0cf800;
+.cus-navbar .navbar-ul>li.active>a{
+	color:#057bf7;
 }
-.cus-navbar .navbar-nav>li:hover a{
-	color:#0cf800;
-	border-bottom:4px solid #0cf800;
+.cus-navbar .navbar-ul>li:hover a{
+	color:#057bf7;
+	border-color:#057bf7;
 }
 .main-body{
-	margin-top:50px;
+	margin-top:60px;
 	height:1000px;
 }
 .main-left{
@@ -64,9 +54,8 @@
 	top:50px;
 	width:200px;
 	bottom:0;
-	background:#fff;
 	overflow-y:auto;
-	background:rgba(0,0,0,0.1);
+	background:#fff;	
 }
 .main-left-nav{
 	margin-top:20px;
@@ -80,9 +69,12 @@
 	font-weight:bold;
 	color:#000;
 }
-.main-left-nav>.item.active>a{
-	color:#f20606;
+.main-left-nav>.item>a:hover{
+	color:#057bf7;
 	text-decoration:underline;
+}
+.main-left-nav>.item.active>a{
+	color:#057bf7;	
 }
 .main-left-nav>.item>a>.fa{
 	margin-right:6px;
@@ -90,6 +82,8 @@
 .main-right{
 	margin-left:200px;
 	margin-top:10px;
+	height:100%;
+	background:transparent;
 }
 @media (max-width:768px) {
 	.main-left{
@@ -100,7 +94,10 @@
 	}
 }
 .main-right-item{
+	margin:10px 20px;
 	padding:10px;
+	border:1px solid transparent;
+	border-radius:4px;
 	transition:all .2s linear;
 }
 .main-right-item .item-content{
@@ -141,31 +138,57 @@
 	text-indent:2em;
 	line-height:26px;
 	font-size:14px;
-	color:#999;
+	color:#777;
+}
+.main-right-item .text a{
+	color: #ff3000;
+    font-weight: bold;
+}
+.main-right-item .text a:hover{
+	text-decoration:underline;
 }
 .main-right-item:hover{
-	background:rgba(0,0,0,.8);
+	border-color:#0abdef;
+	box-shadow: 0 0 10px #03cff7;
 }
 .main-right-item:hover .text{
-	color:#fff;
+	color:#000;
 }
 .main-right-item .item-sign{
 	padding-top:16px;
 }
-.main-right-item .item-sign a{
-	display:inline-block;
-	margin-bottom:10px;
-	padding:4px 12px;
-	font-size:14px;
-	color:#000;
-	background:#fff;
-	border:1px solid #ddd;
-	border-radius:6px;
-}
 .main-right-item .item-sign a:not(:last-child){
 	margin-right:10px;
 }
-.main-right-item .item-sign a.sign-js{
+.sign-default{
+	display:inline-block;
+	transition:all .3s linear;
+	margin-bottom:10px;
+	padding:6px 12px;
+	font-size:12px;
+	font-weight:bold;
 	color:#fff;
-	background:#009bff;
+	background:#aaa;
+	border-radius:6px;
+}
+.sign-default:hover{
+	background:#777;
+}
+.sign-js{
+	background:#049cf7;
+}
+.sign-js:hover{
+	background:#057bf7;
+}
+.sign-css{
+	background:#0cd80a;
+}
+.sign-css:hover{
+	background:#0da94c;
+}
+.sign-others{
+	background:#f7c553;
+}
+.sign-others:hover{
+	background:#ffa500;
 }
