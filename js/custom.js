@@ -20,8 +20,8 @@
            res.forEach(function(item){
            	var content="<div class='main-right-item'>";
            		content+="<div class='item-content'>",
-           		content+="<div class='user'><a href='"+item.url+"'><img src='"+item.userPic+"'></a></div>",
-           		content+="<div class='detail'><div class='title'><a href='"+item.url+"'>"+item.title+"</a></div><div class='text'>"+item.text+"<a href='"+item.url+"'>详细...</a></div></div>",
+           		content+="<div class='user'><a href='"+item.userUrl+"'><img src='"+item.userPic+"'></a></div>",
+           		content+="<div class='detail'><div class='title'><a class='item-link' href='"+item.url+"'>"+item.title+"</a></div><div class='text'>"+item.text+"<a class='item-link' href='"+item.url+"'>详细...</a></div></div>",
            		content+="</div>",
            		content+="<div class='item-sign'>";
            	item.sign.forEach(function(val){
@@ -54,4 +54,23 @@
    			this.className="main-right-item"
    		})
    	}
+   	document.getElementById("mark").onclick=function(){
+   		let req=new XMLHttpRequest();	 
+	    req.open("get","./html/example.md",false)
+		req.send()
+		document.getElementById('main-content').innerHTML="<div class='main-right-article'>"+marked(req.responseText)+"</div>"
+   	}
+   	var link=document.querySelectorAll(".item-link")
+   	for(let i=0;i<link.length;i++){
+   		link[i].onclick=function(e){
+   			let url="./"+this.getAttribute('href').substring(1)+".md";
+   			let req=new XMLHttpRequest();	 
+		    req.open("get",url,false)
+			req.send()
+			document.getElementById('main-content').innerHTML="<div class='main-right-article'>"+marked(req.responseText)+"</div>"
+   		}
+   	}
+   	window.addEventListener("hashchange",function(){
+   		console.log(location.hash)
+   	})
 })()
