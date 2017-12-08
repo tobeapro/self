@@ -88,6 +88,25 @@
 	margin-top:60px;
 	height:1000px;
 }
+.move{
+	animation:move .6s 2 linear;
+}
+@-webkit-keyframes move {
+	from { margin-top:60px }
+	to { margin-top:80px }
+}
+@-o-keyframes move {
+	from { margin-top:60px }
+	to { margin-top:80px }
+}
+@-moz-keyframes move {
+	from { margin-top:60px }
+	to { margin-top:80px }
+}
+@keyframes move {
+	from { margin-top:60px }
+	to { margin-top:80px }
+}
 .main-left{
 	position:fixed;
 	top:50px;
@@ -202,7 +221,8 @@
 .sign-default{
 	transition:all .3s linear;
 	margin-bottom:10px;
-	padding:6px 12px;
+	padding: 2px 16px;
+    line-height: 20px;
 	font-size:12px;
 	font-weight:bold;
 	color:#fff;
@@ -225,6 +245,12 @@
 .sign-css:hover{
 	background:#0da94c;
 }
+.sign-self{
+	background:#09dbf3;
+}
+.sign-self:hover{
+	background:#28cde0;
+}
 .sign-copy{
 	background:#f30505;
 }
@@ -237,6 +263,7 @@
 .sign-others:hover{
 	background:#ffa500;
 }
+
 /*markdown*/
 .main-right-article{
 	padding:10px;
