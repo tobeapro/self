@@ -2,15 +2,15 @@
     "data": [
         {
             "url": "#html/mongodb",
-            "title": "标题",
+            "title": "vue-cli中配置mongodb",
             "userUrl":"#",
             "userPic": "img/user.png",
             "sign": [
                 "js",
                 "css",
-                "copy"
+                "self"
             ],
-            "text": "内容区"
+            "text": "<p>首先根目录下建立servers文件夹,在servers中新建scheame.js和index.js</p>安装mongoose模块，Mongoose是在node.js异步环境下对mongodb进行便捷操作的对象模型工具,简单来说就是使用mongoose来操作Mongodb。"
         },
         {
             "url": "#",
