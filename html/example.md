@@ -21,7 +21,7 @@ function(){
 > * 整理知识，学习笔记
 > * 整理知识，学习笔记
 
-![home](https://tobeapro.github.io/img/home.png)
+![home](https://tobeapro.github.io/img/user.png)
 
 [Todo 列表](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表)
 
