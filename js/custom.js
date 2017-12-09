@@ -19,17 +19,17 @@
     		break;
     		case "css":return "<a class='sign-default sign-css' href='#css'>css</a>";
     		break;
-    		case "self":return "<a class='sign-default sign-self' href='#self'>原创</a>";
+    		case "self":return "<a class='sign-default sign-self' href='#self'>self</a>";
     		break;
     		case "copy":return "<a class='sign-default sign-copy' href='#copy'>转载</a>";
     		break;
-    		default:return "<a class='sign-default sign-others' href='#others'>others</a>";
+    		default:return "<a class='sign-default sign-others' href='#"+ str +"'>"+ str +"</a>";
     	}
     }
     function template(obj){
 	 	var content="<div class='main-right-item'>";
        		content+="<div class='item-content'>",
-       		content+="<div class='user'><a href='"+obj.userUrl+"' target='_blank'><img src='"+obj.userPic+"'></a></div>",
+       		content+="<div class='user'><a href='"+obj.userUrl+"' target='_blank'><img src='"+obj.userPic+"' alt='头像'></a></div>",
        		content+="<div class='detail'><div class='title'><a class='item-link' href='"+obj.url+"'>"+obj.title+"</a></div><div class='text'>"+obj.text+"<a class='item-link' href='"+obj.url+"'>详细...</a></div></div>",
        		content+="</div>",
        		content+="<div class='item-sign'>";
