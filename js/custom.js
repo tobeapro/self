@@ -53,7 +53,8 @@
             res.forEach(function(item){
            	   part.innerHTML+=template(item);		           	
             })
-            loading.hide()	 
+            loading.hide()	
+            bindTouch()
 		}else if(hash.substr(0,5)==="#html"){
 			var url="./"+hash.substring(1)+".md"
 		    req.open("get",url,false)
@@ -74,17 +75,20 @@
 	           	}        	           	
             })
             loading.hide()
+            bindTouch()
 		}
 	}
-    var rightItem=document.querySelectorAll('.main-right-item')
-   	for(var i=0;i<rightItem.length;i++){
-   		rightItem[i].addEventListener("touchstart",function(){
-   			this.className="main-right-item border"
-   		})
-   		rightItem[i].addEventListener("touchend",function(){
-   			this.className="main-right-item"
-   		})
-   	}
+	function bindTouch(){
+		var rightItem=document.querySelectorAll('.main-right-item')
+	   	for(var i=0;i<rightItem.length;i++){
+	   		rightItem[i].addEventListener("touchstart",function(){
+	   			this.className="main-right-item border"
+	   		})
+	   		rightItem[i].addEventListener("touchend",function(){
+	   			this.className="main-right-item"
+	   		})
+	   	}
+	}   
    	window.addEventListener("hashchange",function(){
    		router()
    	})
