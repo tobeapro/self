@@ -12,60 +12,72 @@
 			}
 		}
 	}
-	router()	
-	function router(){
-		loading.show();
-		window.scrollTo(0,0);		
-		var hash=location.hash;
-		var req=new XMLHttpRequest();	
-		if(hash===""){			 
-			req.open("get","./content.json",false)
-			req.send()
-			if (req.readyState==4 && req.status==200){
-	           var res=JSON.parse(req.responseText).data;
-	           var part=document.querySelector("#main-content");
-	           part.innerHTML="";
-	           res.forEach(function(item){
-	           	var content="<div class='main-right-item'>";
-	           		content+="<div class='item-content'>",
-	           		content+="<div class='user'><a href='"+item.userUrl+"'><img src='"+item.userPic+"'></a></div>",
-	           		content+="<div class='detail'><div class='title'><a class='item-link' href='"+item.url+"'>"+item.title+"</a></div><div class='text'>"+item.text+"<a class='item-link' href='"+item.url+"'>详细...</a></div></div>",
-	           		content+="</div>",
-	           		content+="<div class='item-sign'>";
-	           		item.sign.forEach(function(val){
-	           			content+=sign(val);
-	           		})
-	           	content+="</div></div>";
-	           	part.innerHTML+=content;
-	           	loading.hide()
-	           })
-	        }else{
-	        	loading.hide()
-	        	console.log("error")
-	        }  
-		}else{
-			loading.hide()
-			let url="./"+hash.substring(1)+".md"; 
-		    req.open("get",url,false)
-			req.send()
-			document.getElementById('main-content').innerHTML="<div class='main-right-article'>"+marked(req.responseText)+"</div>"
-		}
-	}
-    function sign(str){
+	router()
+	function sign(str){
     	switch(str){
-    		case "js":return "<button class='sign-default sign-js'>javascript</button>";
+    		case "js":return "<a class='sign-default sign-js' href='#js'>javascript</a>";
     		break;
-    		case "css":return "<button class='sign-default sign-css'>css</button>";
+    		case "css":return "<a class='sign-default sign-css' href='#css'>css</a>";
     		break;
-    		case "self":return "<button class='sign-default sign-self'>原创</button>";
+    		case "self":return "<a class='sign-default sign-self' href='#self'>原创</a>";
     		break;
-    		case "copy":return "<button class='sign-default sign-copy'>转载</button>";
+    		case "copy":return "<a class='sign-default sign-copy' href='#copy'>转载</a>";
     		break;
-    		default:return "<button class='sign-default sign-others'>others</button>";
+    		default:return "<a class='sign-default sign-others' href='#others'>others</a>";
     	}
     }
+    function template(obj){
+	 	var content="<div class='main-right-item'>";
+       		content+="<div class='item-content'>",
+       		content+="<div class='user'><a href='"+obj.userUrl+"'><img src='"+obj.userPic+"'></a></div>",
+       		content+="<div class='detail'><div class='title'><a class='item-link' href='"+obj.url+"'>"+obj.title+"</a></div><div class='text'>"+obj.text+"<a class='item-link' href='"+obj.url+"'>详细...</a></div></div>",
+       		content+="</div>",
+       		content+="<div class='item-sign'>";
+       		obj.sign.forEach(function(val){
+       			content+=sign(val);
+       		})
+       		content+="</div></div>";
+       	return content
+    }
+	function router(){
+		loading.show()
+		window.scrollTo(0,0)	
+		var hash=location.hash
+		var req=new XMLHttpRequest()
+		if(hash===""){				
+			req.open("get","./content.json",false)
+			req.send()	
+            var res=JSON.parse(req.responseText).data;
+            var part=document.querySelector("#main-content");
+            part.innerHTML="";
+            res.forEach(function(item){
+           	   part.innerHTML+=template(item);		           	
+            })
+            loading.hide()	 
+		}else if(hash.substr(0,5)==="#html"){
+			var url="./"+hash.substring(1)+".md"
+		    req.open("get",url,false)
+			req.send()
+			document.getElementById('main-content').innerHTML="<div class='main-right-article'>"+marked(req.responseText)+"</div>";
+			loading.hide()
+		}else{
+			hash=hash.substring(1);
+			req.open("get","./content.json",false)
+			req.send()	
+            var res=JSON.parse(req.responseText).data;
+            var part=document.querySelector("#main-content");
+            part.innerHTML="";
+            res.forEach(function(item){
+           		var signs=item.sign.join()
+	           	if(signs.indexOf(hash)!=-1){
+	           		part.innerHTML+=template(item);
+	           	}        	           	
+            })
+            loading.hide()
+		}
+	}
     var rightItem=document.querySelectorAll('.main-right-item')
-   	for(let i=0;i<rightItem.length;i++){
+   	for(var i=0;i<rightItem.length;i++){
    		rightItem[i].addEventListener("touchstart",function(){
    			this.className="main-right-item border"
    		})
@@ -74,7 +86,6 @@
    		})
    	}
    	window.addEventListener("hashchange",function(){
-   		console.log(location.hash)
    		router()
    	})
 })()
