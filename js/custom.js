@@ -29,7 +29,7 @@
     function template(obj){
 	 	var content="<div class='main-right-item'>";
        		content+="<div class='item-content'>",
-       		content+="<div class='user'><a href='"+obj.userUrl+"'><img src='"+obj.userPic+"'></a></div>",
+       		content+="<div class='user'><a href='"+obj.userUrl+"' target='_blank'><img src='"+obj.userPic+"'></a></div>",
        		content+="<div class='detail'><div class='title'><a class='item-link' href='"+obj.url+"'>"+obj.title+"</a></div><div class='text'>"+obj.text+"<a class='item-link' href='"+obj.url+"'>详细...</a></div></div>",
        		content+="</div>",
        		content+="<div class='item-sign'>";
