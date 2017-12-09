@@ -12,7 +12,8 @@
 			}
 		}
 	}
-	router()
+	classifyActive(location.hash)
+	router()	
 	function sign(str){
     	switch(str){
     		case "js":return "<a class='sign-default sign-js' href='#js'>javascript</a>";
@@ -78,6 +79,7 @@
             bindTouch()
 		}
 	}
+	//移动端的hover效果
 	function bindTouch(){
 		var rightItem=document.querySelectorAll('.main-right-item')
 	   	for(var i=0;i<rightItem.length;i++){
@@ -89,7 +91,38 @@
 	   		})
 	   	}
 	}   
+	//监听hash变化
    	window.addEventListener("hashchange",function(){
+   		classifyActive(location.hash)
    		router()
    	})
+   	function classifyActive(hash){
+   		var items=document.body.querySelector('.main-left-nav').querySelectorAll(".item")
+   		if(hash.substr(0,5)==="#html"){
+			return
+   		}else if(hash===""){
+   			for(var i=0;i<items.length;i++){
+	   			items[i].className="item"
+	   		}
+   		}else{
+   			for(var i=0;i<items.length;i++){
+	   			if(items[i].querySelector("a").getAttribute("href")===hash){
+	   				items[i].className="item active"
+	   			}else{
+	   				items[i].className="item"
+	   			}
+	   		}
+   		}
+   	}  
+   	var bar=document.body.querySelector(".bar")
+   	bar.onclick=function(){
+   		var nav=document.body.querySelector(".main-left-nav")
+   		if(this.className==="bar"){
+   			this.className="bar active"
+   			nav.className="main-left-nav active"
+   		}else{
+   			this.className="bar"
+   			nav.className="main-left-nav"
+   		}
+   	}
 })()
