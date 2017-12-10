@@ -57,6 +57,16 @@
 	border-radius:6px;
 	transition:all .2s linear;
 }
+.cus-navbar .link{
+	float:right;
+	padding:0 12px;
+	line-height:50px;
+	font-size:20px;
+	color:#000;
+}
+.cus-navbar .link:hover{
+	color:#057bf7;
+}
 .cus-navbar .text{
 	float:left;
 	line-height:50px;
@@ -148,7 +158,6 @@
 		text-align:center;
 		overflow:hidden;
 		background:rgba(0,0,0,.6);
-		border-radius:4px;
 	}
 	.main-left-nav.active{
 		height:150px;
@@ -352,7 +361,6 @@
 .main-right-article>p{
 	margin-bottom: 6px;
 	line-height:26px;
-	text-indent:2em;
 }
 .main-right-article>p>code{
 	padding:2px;

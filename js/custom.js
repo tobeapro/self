@@ -93,10 +93,10 @@
 	   	}
 	   	for(var j=0;j<leftItem.length;j++){
 	   		leftItem[j].addEventListener("touchstart",function(){
-	   			leftItem[j].style.textDecoration="underline";
+	   			this.style["textDecoration"]="underline";
 	   		})
 	   		leftItem[j].addEventListener("touchend",function(){
-	   			leftItem[j].style.textDecoration="none";
+	   			this.style["textDecoration"]="none";
 	   		})
 	   	}
 	}   
