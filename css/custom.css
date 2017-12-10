@@ -64,9 +64,6 @@
 	font-size:20px;
 	color:#000;
 }
-.cus-navbar .link:hover{
-	color:#057bf7;
-}
 .cus-navbar .text{
 	float:left;
 	line-height:50px;
@@ -84,7 +81,7 @@
 	border-radius:6px;
 	cursor:pointer;
 }
-.cus-navbar .bar.active,.cus-navbar .bar:hover{
+.cus-navbar .bar.active{
 	color:#057bf7;
 }
 .main-body{
