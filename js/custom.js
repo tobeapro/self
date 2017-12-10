@@ -81,13 +81,22 @@
 	}
 	//移动端的hover效果
 	function bindTouch(){
-		var rightItem=document.querySelectorAll('.main-right-item')
+		var rightItem=document.body.querySelectorAll('.main-right-item')
+		var leftItem=document.body.querySelector(".main-left-nav").querySelectorAll("a")
 	   	for(var i=0;i<rightItem.length;i++){
 	   		rightItem[i].addEventListener("touchstart",function(){
 	   			this.className="main-right-item border"
 	   		})
 	   		rightItem[i].addEventListener("touchend",function(){
 	   			this.className="main-right-item"
+	   		})
+	   	}
+	   	for(var j=0;j<leftItem.length;j++){
+	   		leftItem[j].addEventListener("touchstart",function(){
+	   			leftItem[j].style.textDecoration="underline";
+	   		})
+	   		leftItem[j].addEventListener("touchend",function(){
+	   			leftItem[j].style.textDecoration="none";
 	   		})
 	   	}
 	}   
