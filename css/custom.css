@@ -389,3 +389,30 @@
 .main-right-article th {
     padding: 5px 10px;  
 }
+.back-top{
+	transition:all .4s linear;
+	display:none;
+	position:fixed;
+	z-index:1;
+	padding:8px;
+	right:0;
+	bottom:20px;
+	color:#fff;
+	text-align:center;
+	background:rgba(0,0,0,.8);
+	border-radius:6px;
+	cursor:pointer;
+}
+.back-top.active{
+	display:block;
+}
+.back-top:hover{
+	background:#0cd80a;
+}
+.back-top .fa{
+	font-size:20px;
+}
+.back-top p{
+	line-height:20px;
+	font-size:12px;
+}

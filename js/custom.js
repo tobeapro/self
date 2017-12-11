@@ -24,7 +24,7 @@
     		break;
     		case "copy":return "<a class='sign-default sign-copy' href='#copy'>转载</a>";
     		break;
-    		default:return "<a class='sign-default sign-others' href='#"+ str +"'>"+ str +"</a>";
+    		default:return "<a class='sign-default sign-others' href='#others'>"+ str +"</a>";
     	}
     }
     function template(obj){
@@ -69,12 +69,20 @@
             var res=JSON.parse(req.responseText).data;
             var part=document.querySelector("#main-content");
             part.innerHTML="";
-            res.forEach(function(item){
-           		var signs=item.sign.join()
-	           	if(signs.indexOf(hash)!=-1){
-	           		part.innerHTML+=template(item);
-	           	}        	           	
-            })
+            if(hash==="others"){
+            	res.forEach(function(item){
+		           	if(item.signMark){
+		           		part.innerHTML+=template(item);
+		           	}        	           	
+	            })
+            }else{
+	            res.forEach(function(item){
+	           		var signs=item.sign.join()
+		           	if(signs.indexOf(hash)!=-1){
+		           		part.innerHTML+=template(item);
+		           	}        	           	
+	            })
+            }
             loading.hide()
             bindTouch()
 		}
@@ -134,4 +142,25 @@
    			nav.className="main-left-nav"
    		}
    	}
+   	//回到顶部的过度效果
+   	var backTop=document.body.querySelector('.back-top')
+   	backTop.onclick=function(){
+   		var num=3;
+   		var timer=setInterval(function(){
+   			if(num>1){
+   				window.scrollTo(0,200-(3-num)*100)
+   				num=num-0.4
+   			}else{
+   				window.scrollTo(0,0)
+   				clearInterval(timer)
+   			}
+   		},40)
+   	}
+   	window.addEventListener("scroll",function(){
+   		if(window.scrollY>200){
+   			backTop.className="back-top active"
+   		}else{
+   			backTop.className="back-top"
+   		}
+   	})
 })()
