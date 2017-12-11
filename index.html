@@ -1,42 +1,136 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="icon" href="img/icon.png">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <title>blog</title>
-  </head>
-  <body>
-  	<div class="top-header">
-	  	<div class="cus-navbar">
-	  		<a class="home" href="#"><i class="fa fa-home"></i></a>
-	  		<p class="text">写在前面....</p>
-		   	<div class="bar"><i class="fa fa-bars" aria-hidden="true"></i></div>
-		   	<a class="link" href="https://github.com/tobeapro" target="_blank" title="github">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</div>
-		</div>
-		<div class="main-body">
-			<div class="main-left">
-				<ul class="main-left-nav">
-					<li class="item"><a href="#js"><i class="fa fa-paper-plane" aria-hidden="true"></i>javascript</a></li>
-					<li class="item"><a href="#css"><i class="fa fa-css3" aria-hidden="true"></i>css</a></li>
-					<li class="item"><a href="#others"><i class="fa fa-code" aria-hidden="true"></i>others</a></li>
-					<li class="item"><a href="#self"><i class="fa fa-user" aria-hidden="true"></i>self</a></li>
-					<li class="item"><a href="#copy"><i class="fa fa-clone" aria-hidden="true"></i>转载</a></li>					
-				</ul>
-			</div>
-			<div class="main-right" id="main-content">				
-			</div>
-			<div class="back-top">
-				<i class="fa fa-arrow-up" aria-hidden="true"></i>
-			</div>
-		</div>
-		<script type="text/javascript" src="js/marked.js"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	    <link rel="icon" href="img/icon.png">
+	    <link rel="stylesheet" href="css/reset.css">
+	    <style>
+	    	.mask{
+	    		position:fixed;
+	    		z-index:-1;
+	    		top:0;
+	    		left:0;
+	    		right:0;
+	    		bottom:0;
+	    		background:url(img/home.png) no-repeat;
+	    		background-size:cover;
+	    		-ms-filter: blur(30px);
+	    		filter: blur(30px);
+	    	}
+	    	.base{
+	    		position:fixed;
+	    		top:30%;
+	    		left:50%;
+	    		margin-top:-120px;
+	    		width:4px;
+	    		height:200px;
+	    		background:rgba(255,255,255,.4)	 ;   		
+	    		box-shadow:0 0 4px #fff;
+	    	}	
+	    	.box img{
+	    		float:left;
+	    		margin-right:6px;
+	    		width:30px;
+	    		height:30px;
+	    	}
+	    	.box a{
+	    		position:absolute;
+	    		display:inline-block;
+	    		line-height:30px;
+	    		font-size:16px;
+	    		font-weight:bold;
+	    	}
+	    	.box a.blog{
+	    		transition:all 1s ease;
+	    		top:30%;
+	    		right:50%;
+	    		margin-top:-100px;
+	    		margin-right:100px;
+	    		opacity:0.2;
+	    		color:#fadb00;    		
+	    	}
+	    	.box a.blog.loading{
+	    		margin-right:20px;
+	    		opacity:1;  		
+	    	}
+	    	.box a.weibo{
+	    		transition:all 1s ease;
+	    		top:30%;
+	    		left:50%;
+	    		margin-top:-50px;
+	    		margin-left:100px;
+	    		opacity:0.2;
+	    		color:#f6260c;
+	    	}
+	    	.box a.weibo.loading{
+	    		margin-left:20px;
+	    		opacity:1;  		
+	    	}
+	    	.box a.github{
+	    		transition:all 1s ease;
+	    		top:30%;
+	    		right:50%;
+	    		margin-right:100px;
+	    		opacity:0.2;
+	    		color:#0546fc;
+	    	}
+	    	.box a.github.loading{
+	    		margin-right:20px;
+	    		opacity:1;  		
+	    	}
+	    	.box a.self{
+	    		transition:all 1s ease;
+	    		top:30%;
+	    		left:50%;
+	    		-webkit-transform: translateX(-50%);
+	    		-moz-transform: translateX(-50%);
+	    		-ms-transform: translateX(-50%);
+	    		-o-transform: translateX(-50%);
+	    		transform: translateX(-50%);;
+	    		margin-top:160px;
+	    		padding:10px 20px;
+	    		font-size:12px;	    		
+	    		color:#fff;  
+	    		background:rgba(0,0,0,.6);  
+	    		border-radius:10px;		
+	    	}
+	    	.box a:hover{
+	    		text-decoration:underline;
+	    	}
+	    	.box a.self:hover{
+	    		background:#000; 
+	    	}
+	    	.box a.self.loading{
+	    		margin-top:120px;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div class="mask"></div>
+		<div class="base"></div>
+		<div class="box">
+			<a class="blog" href="/home">
+				<img src="img/blog.png">博客
+			</a>
+			<a class="weibo" href="https://weibo.com/p/1005052217720684/home?from=page_100505&mod=TAB#place">
+				<img src="img/weibo.png">微博
+			</a>
+			<a class="github" href="https://github.com/tobeapro">
+				<img src="img/github.png">github
+			</a>
+			<a class="self" href="https://github.com/tobeapro/tobeapro.github.io">关于我</a>
+		</div>		
+	</body>
+	<script>
+		(function(){
+			var link=document.body.querySelectorAll(".box a")
+			setTimeout(function(){
+				for(var i=0;i<link.length;i++){
+				link[i].className+=" loading"				
+				}	
+			},100)
+		})()
+	</script>
 </html>
