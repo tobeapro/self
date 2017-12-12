@@ -19,7 +19,7 @@
 	    	}
 	    	.base{
 	    		position:fixed;
-	    		top:30%;
+	    		top:40%;
 	    		left:50%;
 	    		margin-top:-120px;
 	    		width:4px;
@@ -42,7 +42,7 @@
 	    	}
 	    	.box a.blog{
 	    		transition:all 1s ease;
-	    		top:30%;
+	    		top:40%;
 	    		right:50%;
 	    		margin-top:-100px;
 	    		margin-right:100px;
@@ -55,7 +55,7 @@
 	    	}
 	    	.box a.weibo{
 	    		transition:all 1s ease;
-	    		top:30%;
+	    		top:40%;
 	    		left:50%;
 	    		margin-top:-50px;
 	    		margin-left:100px;
@@ -68,19 +68,19 @@
 	    	}
 	    	.box a.github{
 	    		transition:all 1s ease;
-	    		top:30%;
+	    		top:40%;
 	    		right:50%;
 	    		margin-right:100px;
 	    		opacity:0.2;
 	    		color:#0546fc;
 	    	}
 	    	.box a.github.loading{
-	    		margin-right:20px;
+	    		margin-right:10px;
 	    		opacity:1;  		
 	    	}
 	    	.box a.self{
 	    		transition:all 1s ease;
-	    		top:30%;
+	    		top:40%;
 	    		left:50%;
 	    		-webkit-transform: translateX(-50%);
 	    		-moz-transform: translateX(-50%);
@@ -88,11 +88,16 @@
 	    		-o-transform: translateX(-50%);
 	    		transform: translateX(-50%);;
 	    		margin-top:160px;
-	    		padding:10px 20px;
+	    		padding:2px 16px;
+	    		opacity:0.2;
 	    		font-size:12px;	    		
 	    		color:#fff;  
-	    		background:rgba(0,0,0,.6);  
+	    		background:rgba(0,0,0,.8);  
 	    		border-radius:10px;		
+	    	}
+	    	.box a.self.loading{
+	    		margin-top:120px;
+	    		opacity:1;
 	    	}
 	    	.box a:hover{
 	    		text-decoration:underline;
@@ -100,16 +105,13 @@
 	    	.box a.self:hover{
 	    		background:#000; 
 	    	}
-	    	.box a.self.loading{
-	    		margin-top:120px;
-	    	}
 	    </style>
 	</head>
 	<body>
 		<div class="mask"></div>
 		<div class="base"></div>
 		<div class="box">
-			<a class="blog" href="/home">
+			<a class="blog" href="/blog">
 				<img src="img/blog.png">博客
 			</a>
 			<a class="weibo" href="https://weibo.com/p/1005052217720684/home?from=page_100505&mod=TAB#place">
@@ -118,15 +120,15 @@
 			<a class="github" href="https://github.com/tobeapro">
 				<img src="img/github.png">github
 			</a>
-			<a class="self" href="https://github.com/tobeapro/tobeapro.github.io">关于我</a>
+			<a class="self" href="/bio">关于我</a>
 		</div>		
 	</body>
 	<script>
 		(function(){
-			var link=document.body.querySelectorAll(".box a")
+			var link=document.body.querySelectorAll("a")
 			setTimeout(function(){
 				for(var i=0;i<link.length;i++){
-				link[i].className+=" loading"				
+					link[i].className+=" loading"				
 				}	
 			},100)
 		})()
