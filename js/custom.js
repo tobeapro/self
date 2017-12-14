@@ -13,7 +13,7 @@
 		}
 	}
 	classifyActive(location.hash)
-	router()	
+	router()
 	function sign(str){
     	switch(str){
     		case "js":return "<a class='sign-default sign-js' href='#js'>javascript</a>";
@@ -42,19 +42,19 @@
     }
 	function router(){
 		loading.show()
-		window.scrollTo(0,0)	
+		window.scrollTo(0,0)
 		var hash=location.hash
 		var req=new XMLHttpRequest()
-		if(hash===""){				
+		if(hash===""){
 			req.open("get","./content.json",false)
-			req.send()	
+			req.send()
             var res=JSON.parse(req.responseText).data;
             var part=document.querySelector("#main-content");
             part.innerHTML="";
             res.forEach(function(item){
-           	   part.innerHTML+=template(item);		           	
+           	   part.innerHTML+=template(item);
             })
-            loading.hide()	
+            loading.hide()
             bindTouch()
 		}else if(hash.substr(0,5)==="#html"){
 			var url="./"+hash.substring(1)+".md"
@@ -65,7 +65,7 @@
 		}else{
 			hash=hash.substring(1);
 			req.open("get","./content.json",false)
-			req.send()	
+			req.send()
             var res=JSON.parse(req.responseText).data;
             var part=document.querySelector("#main-content");
             part.innerHTML="";
@@ -73,24 +73,26 @@
             	res.forEach(function(item){
 		           	if(item.signMark){
 		           		part.innerHTML+=template(item);
-		           	}        	           	
+		           	}
 	            })
             }else{
 	            res.forEach(function(item){
 	           		var signs=item.sign.join()
 		           	if(signs.indexOf(hash)!=-1){
 		           		part.innerHTML+=template(item);
-		           	}        	           	
+		           	}
 	            })
             }
             loading.hide()
             bindTouch()
 		}
 	}
-	//移动端的hover效果
-	function bindTouch(){
+	//移动端的hover效果和点击时间
+	function bindEvent(){
 		var rightItem=document.body.querySelectorAll('.main-right-item')
-		var leftItem=document.body.querySelector(".main-left-nav").querySelectorAll("a")
+		var leftNav=document.querySelector('.main-left-nav')
+		var leftItem=leftNav.querySelectorAll("a")
+		var bar=document.querySelector(".bar")
 	   	for(var i=0;i<rightItem.length;i++){
 	   		rightItem[i].addEventListener("touchstart",function(){
 	   			this.className="main-right-item border"
@@ -100,6 +102,10 @@
 	   		})
 	   	}
 	   	for(var j=0;j<leftItem.length;j++){
+				leftItem[j].addEventListener("click",function(){
+					leftNav.className="main-left-nav"
+					bar.className="bar"
+				})
 	   		leftItem[j].addEventListener("touchstart",function(){
 	   			this.style["textDecoration"]="underline";
 	   		})
@@ -107,7 +113,7 @@
 	   			this.style["textDecoration"]="none";
 	   		})
 	   	}
-	}   
+	}
 	//监听hash变化
    	window.addEventListener("hashchange",function(){
    		classifyActive(location.hash)
@@ -130,7 +136,7 @@
 	   			}
 	   		}
    		}
-   	}  
+   	}
    	var bar=document.body.querySelector(".bar")
    	bar.onclick=function(){
    		var nav=document.body.querySelector(".main-left-nav")
