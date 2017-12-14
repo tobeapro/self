@@ -55,7 +55,7 @@
            	   part.innerHTML+=template(item);
             })
             loading.hide()
-            bindTouch()
+            bindEvent()
 		}else if(hash.substr(0,5)==="#html"){
 			var url="./"+hash.substring(1)+".md"
 		    req.open("get",url,false)
@@ -84,7 +84,7 @@
 	            })
             }
             loading.hide()
-            bindTouch()
+            bindEvent()
 		}
 	}
 	//移动端的hover效果和点击时间
