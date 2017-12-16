@@ -121,11 +121,13 @@
    	})
    	function classifyActive(hash){
    		var items=document.body.querySelector('.main-left-nav').querySelectorAll(".item")
-   		if(hash.substr(0,5)==="#html"){
-			return
-   		}else if(hash===""){
+   		if(hash.substr(0,5)==="#html"||hash===""){
    			for(var i=0;i<items.length;i++){
-	   			items[i].className="item"
+	   			if(items[i].querySelector("a").getAttribute("href")==="#"){
+	   				items[i].className="item active"
+	   			}else{
+	   				items[i].className="item"
+	   			}
 	   		}
    		}else{
    			for(var i=0;i<items.length;i++){
