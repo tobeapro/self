@@ -14,120 +14,245 @@
 	    		left:0;
 	    		right:0;
 	    		bottom:0;
-	    		background:url(img/home.png) no-repeat;
-	    		background-size:cover;
 	    	}
-	    	@media (min-width:768px ) {
-	    		.mask{
-	    			background:url(img/home-big.png) no-repeat;
-	    			background-size:cover;
-	    		}
-	    	}
-	    	.base{
-	    		position:fixed;
-	    		top:40%;
-	    		left:50%;
-	    		margin-top:-120px;
-	    		width:4px;
-	    		height:200px;
-	    		background:rgba(255,255,255,.6)	 ;   		
-	    		box-shadow:0 0 4px #fff;
-	    	}	
 	    	.box img{
 	    		float:left;
-	    		margin-right:6px;
-	    		width:30px;
-	    		height:30px;
+	    		margin-top:2px;
+	    		margin-right:4px;
+	    		width:26px;
+	    		height:26px;
 	    	}
 	    	.box a{
+	    		transition:all 1s ease;
 	    		position:absolute;
-	    		display:inline-block;
+	    		right:40px;
+	    		top:50%;
+	    		display:inline-block;    
+	    		width:100px;		
+	    		height:30px;
 	    		line-height:30px;
-	    		font-size:16px;
+	    		text-align:left;
+	    		color:#000;
+	    		font-size:14px;
 	    		font-weight:bold;
 	    	}
-	    	.box a.blog{
-	    		transition:all 1s ease;
-	    		top:40%;
-	    		right:50%;
-	    		margin-top:-100px;
-	    		margin-right:100px;
-	    		opacity:0.2;
-	    		color:#fadb00;    		
+	    	.box a.blog{    		
+	    		margin-top:-140px;		
+	    		color:#d4237a;
+	    		opacity:0;
 	    	}
 	    	.box a.blog.loading{
-	    		margin-right:20px;
-	    		opacity:1;  		
-	    	}
-	    	.box a.weibo{
-	    		transition:all 1s ease;
-	    		top:40%;
-	    		left:50%;
-	    		margin-top:-50px;
-	    		margin-left:100px;
-	    		opacity:0.2;
-	    		color:#f6260c;
-	    	}
-	    	.box a.weibo.loading{
-	    		margin-left:20px;
-	    		opacity:1;  		
-	    	}
-	    	.box a.github{
-	    		transition:all 1s ease;
-	    		top:40%;
-	    		right:50%;
-	    		margin-right:100px;
-	    		opacity:0.2;
-	    		color:#0546fc;
-	    	}
-	    	.box a.github.loading{
-	    		margin-right:10px;
-	    		opacity:1;  		
-	    	}
-	    	.box a.self{
-	    		transition:all 1s ease;
-	    		top:40%;
-	    		left:50%;
-	    		-webkit-transform: translateX(-50%);
-	    		-moz-transform: translateX(-50%);
-	    		-ms-transform: translateX(-50%);
-	    		-o-transform: translateX(-50%);
-	    		transform: translateX(-50%);;
-	    		margin-top:160px;
-	    		padding:2px 16px;
-	    		opacity:0.2;
-	    		font-size:12px;	    		
-	    		color:#fff;  
-	    		background:rgba(0,0,0,.8);  
-	    		border-radius:10px;		
-	    	}
-	    	.box a.self.loading{
-	    		margin-top:120px;
+	    		margin-top:-100px;
 	    		opacity:1;
 	    	}
-	    	.box a:hover{
-	    		text-decoration:underline;
+	    	.box a.github{  
+	    		margin-right:-40px;  		
+	    		margin-top:-50px;  
+	    		color:#4de211; 
+	    		opacity:0; 		
 	    	}
-	    	.box a.self:hover{
-	    		background:#000; 
+	    	.box a.github.loading{
+	    		margin-right:0;
+	    		opacity:1;
+	    	}
+	    	.box a.self{
+	    		margin-top:40px;
+	    		color:#07c8fd;
+	    		opacity:0;
+	    	}
+	    	.box a.self.loading{
+	    		margin-top:0;
+	    		opacity:1;
+	    	}
+	    	.points{
+	    		position:absolute;
+	    		left:50%;
+	    		top:50%;
+	    		margin-left:-50px;
+	    		margin-top:-80px;
+	    		transform: rotateX(45deg) rotateZ(45deg);  
+	    		transform-style: preserve-3d;  	
+	    	}
+	    	@-webkit-keyframes move {
+	    		0% {transform:translateZ(0)}
+	    		50% {transform:translateZ(20px)}
+	    		100% {transform:translateZ(0px)}
+	    	}
+	    	@-o-keyframes move {
+	    		0% {transform:translateZ(0)}
+	    		50% {transform:translateZ(20px)}
+	    		100% {transform:translateZ(0px)}
+	    	}
+	    	@-moz-keyframes move {
+	    		0% {transform:translateZ(0)}
+	    		50% {transform:translateZ(20px)}
+	    		100% {transform:translateZ(0px)}
+	    	}
+	    	@keyframes move {
+	    		0% {transform:translateZ(0)}
+	    		50% {transform:translateZ(20px)}
+	    		100% {transform:translateZ(0px)}
+	    	}
+	    	.points .point{
+	    		position:absolute;
+	    		top:0;
+	    		left:0;
+	    		-webkit-animation:move 1s infinite ease-in-out;
+	    		-moz-animation:move 1s infinite ease-in-out;
+	    		-o-animation:move 1s infinite ease-in-out;
+	    		animation:move 1s infinite ease-in-out;
+	    		transform-style: preserve-3d;
+	    		box-shadow:10px 10px 2em rgba(0, 0, 0, 0.8);	    		
+	    	}
+	    	.points .point:nth-child(2){
+	    		animation-delay: .1s;
+	    		top:30px;
+	    	}
+	    	.points .point:nth-child(3){
+	    		animation-delay: .2s;
+	    		top:60px;
+	    	}
+	    	.points .point:nth-child(4){
+	    		animation-delay: .3s;
+	    		left:30px;
+	    	}
+	    	.points .point:nth-child(5){
+	    		animation-delay: .4s;
+	    		left:30px;
+	    		top:30px;
+	    	}
+	    	.points .point:nth-child(6){
+	    		animation-delay: .5s;
+	    		left:30px;
+	    		top:60px;
+	    	}
+	    	.points .point:nth-child(7){
+	    		animation-delay: .6s;
+	    		left:60px;
+	    	}
+	    	.points .point:nth-child(8){
+	    		animation-delay: .7s;
+	    		left:60px;
+	    		top:30px;
+	    	}
+	    	.points .point:nth-child(9){
+	    		animation-delay: .8s;
+	    		left:60px;
+	    		top:60px;
+	    	}
+			.point .point-side{
+	    		position:absolute;
+	    		top:0;
+	    		left:0;
+	    		width:20px;
+	    		height:20px;
+	    		color:#fff;
+	    		background:#07a5ef;
+	    	}
+	    	.point .point-side:nth-child(2){
+	    		transform: translateX(10px) translateZ(-10px) rotateY(90deg) ;
+	    	}
+	    	.point .point-side:nth-child(3){
+	    		transform: translateX(-10px) translateZ(-10px) rotateY(90deg)  ;
+	    	}
+	    	.point .point-side:nth-child(4){
+	    		transform: translateY(10px) translateZ(-10px) rotateX(90deg);
+	    	}
+	    	.point .point-side:nth-child(5){
+	    		transform: translateY(-10px) translateZ(-10px) rotateX(90deg);
+	    	}
+	    	.point .point-side:nth-child(6){
+	    		transform: translateZ(-20px);
 	    	}
 	    </style>
 	</head>
 	<body>
 		<div class="mask"></div>
-		<div class="base"></div>
+		<div class="points">
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+			<div class="point">
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+				<i class="point-side"></i>
+			</div>
+		</div>
 		<div class="box">
 			<a class="blog" href="/blog">
 				<img src="img/blog.png">博客
 			</a>
-			<a class="weibo" href="https://weibo.com/p/1005052217720684/home?from=page_100505&mod=TAB#place">
-				<img src="img/weibo.png">微博
-			</a>
 			<a class="github" href="https://github.com/tobeapro">
 				<img src="img/github.png">github
 			</a>
-			<a class="self" href="/bio">关于我</a>
-		</div>		
+			<a class="self" href="/bio">
+				<img src="img/self.png">关于我
+			</a>
+		</div>	
 	</body>
 	<script>
 		(function(){
