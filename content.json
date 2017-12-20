@@ -75,20 +75,6 @@
                 "self"
             ],
             "text": "布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。2009年，W3C 提出了一种新的方案----Flex 布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。"
-        },
-        {
-            "url": "#html/171219A",
-            "title": "vue-cli脚手架工具开发总结",
-            "userUrl":"https://github.com/tobeapro/tobeapro.github.io?files=1",
-            "userPic": "img/user.png",
-            "sign": [
-                "js",
-                "self",
-                "vue",
-                "node"
-            ],
-            "signMark":true,         
-            "text": "写在前面：在基本不懂后台，不会打包工具的前提下，完成了一个基于vue-cli的spa音乐播放器后，决定做一些总结(纯入门)，以下总结是针对刚学习vue和使用cli工具的。"
         }
     ]
 }
