@@ -7,14 +7,6 @@
 	    <link rel="icon" href="img/icon.png">
 	    <link rel="stylesheet" href="css/reset.css">
 	    <style>
-	    	.mask{
-	    		position:fixed;
-	    		z-index:-1;
-	    		top:0;
-	    		left:0;
-	    		right:0;
-	    		bottom:0;
-	    	}
 	    	.box img{
 	    		float:left;
 	    		margin-top:2px;
@@ -69,28 +61,28 @@
 	    		left:50%;
 	    		top:50%;
 	    		margin-left:-50px;
-	    		margin-top:-80px;
+	    		margin-top:-100px;
 	    		transform: rotateX(45deg) rotateZ(45deg);  
 	    		transform-style: preserve-3d;  	
 	    	}
 	    	@-webkit-keyframes move {
 	    		0% {transform:translateZ(0)}
-	    		50% {transform:translateZ(20px)}
+	    		50% {transform:translateZ(10px)}
 	    		100% {transform:translateZ(0px)}
 	    	}
 	    	@-o-keyframes move {
 	    		0% {transform:translateZ(0)}
-	    		50% {transform:translateZ(20px)}
+	    		50% {transform:translateZ(10px)}
 	    		100% {transform:translateZ(0px)}
 	    	}
 	    	@-moz-keyframes move {
 	    		0% {transform:translateZ(0)}
-	    		50% {transform:translateZ(20px)}
+	    		50% {transform:translateZ(10px)}
 	    		100% {transform:translateZ(0px)}
 	    	}
 	    	@keyframes move {
 	    		0% {transform:translateZ(0)}
-	    		50% {transform:translateZ(20px)}
+	    		50% {transform:translateZ(10px)}
 	    		100% {transform:translateZ(0px)}
 	    	}
 	    	.points .point{
@@ -102,7 +94,7 @@
 	    		-o-animation:move 1s infinite ease-in-out;
 	    		animation:move 1s infinite ease-in-out;
 	    		transform-style: preserve-3d;
-	    		box-shadow:10px 10px 2em rgba(0, 0, 0, 0.8);	    		
+	    		   		
 	    	}
 	    	.points .point:nth-child(2){
 	    		animation-delay: .1s;
@@ -147,16 +139,21 @@
 	    		width:20px;
 	    		height:20px;
 	    		color:#fff;
-	    		background:#07a5ef;
+	    		background:#05befb;
+	    	}
+	    	.point .point-side:nth-child(1){
+	    		box-shadow:80px 80px 10px rgba(0, 0, 0, 0.1);
 	    	}
 	    	.point .point-side:nth-child(2){
 	    		transform: translateX(10px) translateZ(-10px) rotateY(90deg) ;
+	    		background:#1392ce;
 	    	}
 	    	.point .point-side:nth-child(3){
 	    		transform: translateX(-10px) translateZ(-10px) rotateY(90deg)  ;
 	    	}
 	    	.point .point-side:nth-child(4){
 	    		transform: translateY(10px) translateZ(-10px) rotateX(90deg);
+	    		background:#1392ce;
 	    	}
 	    	.point .point-side:nth-child(5){
 	    		transform: translateY(-10px) translateZ(-10px) rotateX(90deg);
@@ -167,7 +164,6 @@
 	    </style>
 	</head>
 	<body>
-		<div class="mask"></div>
 		<div class="points">
 			<div class="point">
 				<i class="point-side"></i>
