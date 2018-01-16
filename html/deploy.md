@@ -77,7 +77,7 @@ node应用的进程管理器`git`：将git仓库的代码远程拉取到云主�
 
 我的目录划分为：
 
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863dcaf187ca?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy1.png)
 
 如图所示，在 / (根目录)下新建server目录，然后在server目录下新建app、compile、daemon和runtime四个文件夹。
 
@@ -94,7 +94,7 @@ compile目录下存放下载的tar包以及从tar包解压出来的文件。如�
 runtime目录是软件安装的目标路径，compile目录下的nginx安装包通过configure指令安装到runtime目录下。
 
 runtime内部目录结构如图：
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863dc7f2e4b2?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy2.png)
 
 如图所示，为了便于管理，runtime目录下根据软件分文件夹(nginx)，再根据版本分文件夹(1.12.2)。
 
@@ -102,7 +102,7 @@ runtime内部目录结构如图：
 
 daemon被称为守护进程，daemon目录下存放的是会一直运行的服务，如nginx。daemon内部目录结构如图：
 
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863dc6f3746d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy3.png)
 
 如图，nginx目录下先根据版本（1.12.2）进行划分，后根据端口（80）进行划分。在多版本nginx、多端口并存的场景下，如果我要快速定位nginx的问题，这种划分会给运维带来极大的便利。需要寻找对应版本和对应端口时，只要寻找文件目录即可。
 
@@ -128,13 +128,13 @@ log文件夹内存放nginx的运行日志，以文件的方式进行存储。
 ### 五、代码
 
 ##### 1、PM2的配置文件代码
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863dcc8d76cf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy4.png)
 ##### 2、up脚本代码
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863dc71bf00f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy5.png)
 ##### 3、down脚本代码
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863dcb0ee73f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy6.png)
 ##### 4、nginx配置文件代码
-![图片](https://user-gold-cdn.xitu.io/2017/11/20/15fd863df6feaee3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片](https://tobeapro.github.io/img/deploy7.png)
 
 ### 六、总结
 
