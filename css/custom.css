@@ -425,3 +425,60 @@
 	line-height:20px;
 	font-size:12px;
 }
+.others-links{
+	position:fixed;
+	right:0;
+	top:50%;
+	transform:translateY(-50%);
+	padding:6px;
+	width:20px;
+	height:auto;
+	color:#fff;
+	background:rgba(0,0,0,.4);
+	cursor:pointer;
+}
+.others-links .fa{
+	padding-right:4px;
+}
+.others-links .fa.link-left{
+	height:60px;
+	line-height:60px;
+	font-size:16px;
+}
+.others-links h3{
+	display:none;
+	margin-bottom:6px;	
+	color:#24ff00;
+}
+.others-links .link-list{
+	display:none;
+	padding-left:2px;
+	max-height:120px;
+	overflow-y:auto;	
+}
+.others-links .link-list li{
+	line-height:26px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.others-links a{
+	color:#fff;
+}
+.others-links a:hover{
+	color:#FFC107;
+}
+.others-links:hover{
+	width:120px;
+	background:#000;
+	border-radius:4px;
+}
+.others-links:hover .fa.link-left{
+	display:none;
+}
+.others-links:hover h3{
+	display:block;
+}
+.others-links:hover .link-list{
+	display:block;
+}
