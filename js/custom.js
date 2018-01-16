@@ -61,6 +61,9 @@
 		    req.open("get",url,false)
 			req.send()
 			document.getElementById('main-content').innerHTML="<div class='main-right-article'>"+marked(req.responseText)+"</div>";
+			document.querySelectorAll('pre code').forEach(function(block) {
+			    hljs.highlightBlock(block);
+			 })
 			loading.hide()
 		}else{
 			hash=hash.substring(1);
