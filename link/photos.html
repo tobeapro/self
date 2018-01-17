@@ -2,8 +2,83 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="icon" href="../img/icon.png">
 		<title>照片墙</title>
+		<meta name="keywords" content="blog,个人博客,note,笔记,照片墙">
+  		<meta name="description" content="个人博客网站,技术总结和转载相关文章">
+		<style>
+			body{
+				background:rgba(0,0,0,.6)
+			}
+			p{
+				color:#fff;
+			}
+			p a{
+				color:#fa9c00;
+			}
+			.box{
+				transform-style:preserve-3d;
+				transform:rotateX(-6deg);
+			}
+			.photos{
+				position:absolute;
+				left:50%;
+				margin-top:100px;			
+				transform-style:preserve-3d;							
+				animation:move 10s infinite linear;				
+			}
+			@-webkit-keyframes move {
+				0% { transform:rotateY(0) translateX(-50%)}
+				100% { transform:rotateY(360deg) translateX(-50%)}
+			}
+			@-o-keyframes move {
+				0% { transform:rotateY(0) translateX(-50%)}
+				100% { transform:rotateY(360deg) translateX(-50%)}
+			}
+			@-moz-keyframes move {
+				0% { transform:rotateY(0) translateX(-50%)}
+				100% { transform:rotateY(360deg) translateX(-50%)}
+			}
+			@keyframes move {
+				0% { transform:rotateY(0) translateX(-50%)}
+				100% { transform:rotateY(360deg) translateX(-50%)}
+			}
+			img{
+				position:absolute;
+				left:0;
+				top:0;
+				width:140px;
+				border:1px solid #fff;
+				box-reflect:below 3px -webkit-linear-gradient(top,rgba(0,0,0,0) 40%,rgba(0,0,0,0.6));
+				-webkit-box-reflect:below 3px -webkit-linear-gradient(top,rgba(0,0,0,0) 40%,rgba(0,0,0,0.6));
+				box-shadow:0 0 10px #fff;
+			}
+		</style>
 	</head>
 	<body>
+		<p>看到一些css实现的3d相册，自己动手实现一下</p>
+		<p>相关链接:<a href="http://www.zhangxinxu.com/wordpress/2016/08/webkit-box-reflect-moz-element/" target="_blank">CSS3设置倒影</a></p>
+		<div class="box">
+			<div class="photos">
+				<img src="../img/photo.png">
+				<img src="../img/photo2.png">
+				<img src="../img/photo3.png">
+				<img src="../img/photo4.png">
+				<img src="../img/photo5.png">
+				<img src="../img/photo6.png">
+				<img src="../img/photo7.png">
+				<img src="../img/photo8.png">
+				<img src="../img/photo9.png">
+				<img src="../img/photo10.png">
+			</div>
+		</div>
 	</body>
+	<script>
+		(function(){
+			var imgs=document.querySelectorAll('.photos img')
+			imgs.forEach(function(item,index){
+				item.style='transform:rotateY('+index*36+'deg) translateZ(400px)'
+			})
+		})()
+	</script>
 </html>
