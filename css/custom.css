@@ -427,22 +427,24 @@
 }
 .others-links{
 	position:fixed;
-	right:0;
+	right:4px;
 	top:50%;
 	transform:translateY(-50%);
 	padding:6px;
-	width:20px;
+	width:40px;
 	height:auto;
 	color:#fff;
 	background:rgba(0,0,0,.4);
+	border-radius:4px;
 	cursor:pointer;
 }
 .others-links .fa{
 	padding-right:4px;
 }
 .others-links .fa.link-left{
-	height:60px;
-	line-height:60px;
+	padding:0 10px;
+	height:40px;
+	line-height:40px;
 	font-size:16px;
 }
 .others-links h3{
@@ -471,7 +473,6 @@
 .others-links:hover{
 	width:120px;
 	background:#000;
-	border-radius:4px;
 }
 .others-links:hover .fa.link-left{
 	display:none;
