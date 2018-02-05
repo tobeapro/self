@@ -14,6 +14,7 @@
 	}
 	classifyActive(location.hash)
 	router()
+	othersLink()
 	function sign(str){
     	switch(str){
     		case "js":return "<a class='sign-default sign-js' href='#js'>javascript</a>";
@@ -174,4 +175,17 @@
    			backTop.className="back-top"
    		}
    	})
+   	//其他展示
+   	function othersLink(){
+   		var req=new XMLHttpRequest()
+   		req.open("get",'./othersData.json',false)
+   		req.send()
+   		var res=JSON.parse(req.responseText).data
+   		var list=document.querySelector(".link-list")
+   		var content="";
+   		res.forEach(function(item){
+   			content+="<li><a href='"+item.url+"'><i class='fa fa-star' aria-hidden='true'></i>"+item.name+"</a></li>"
+   		})
+   		list.innerHTML=content
+   	}
 })()
