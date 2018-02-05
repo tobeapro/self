@@ -1,0 +1,12 @@
+{
+	"data":[
+		{
+			"url":"/link/photos.html",
+			"name":"照片墙"
+		},
+		{
+			"url":"/link/lazyloading.html",
+			"name":"懒加载"
+		}
+	]
+}
