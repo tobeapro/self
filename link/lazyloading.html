@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="../img/icon.png">
+		<title>图片懒加载</title>
+		<meta name="keywords" content="blog,个人博客,note,笔记,懒加载">
+  		<meta name="description" content="个人博客网站,技术总结和转载相关文章">
+		<style>
+			body{
+				background:rgba(0,0,0,.6);
+			}
+			p{
+				line-height:30px;
+				color:#fff;
+			}
+			.content{
+				margin-top:20px;
+			}
+			.box{
+				margin:0 auto;
+				width:200px;
+			}
+			img{
+				display:block;
+				margin-bottom:20px;
+				width:200px;
+				height:320px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>用jquery实现图片懒加载</p>
+		<div class="content">
+			<p>形如电商网站,首页商品各种图片比较多,页面比较长,初次加载时可视区域有限,当用户没有向下滚动查看时,不去渲染图片,以此来减少网络请求。</p>
+			<p>当滚动到相应位置时再加载,达到按需的作用</p>
+		</div>
+		<div class="box">
+			<img src="../img/loading.gif" data-src="../img/photo.png">
+			<img src="../img/loading.gif" data-src="../img/photo2.png">
+			<img src="../img/loading.gif" data-src="../img/photo3.png">
+			<img src="../img/loading.gif" data-src="../img/photo4.png">
+			<img src="../img/loading.gif" data-src="../img/photo5.png">
+			<img src="../img/loading.gif" data-src="../img/photo6.png">
+			<img src="../img/loading.gif" data-src="../img/photo7.png">
+			<img src="../img/loading.gif" data-src="../img/photo8.png">
+			<img src="../img/loading.gif" data-src="../img/photo9.png">
+			<img src="../img/loading.gif" data-src="../img/photo10.png">
+		</div>
+	</body>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			function srcollLoading(){
+				var imgs=$("img")
+				var height=$(window).height()
+				for(var i=0;i<imgs.length;i++){
+					if(imgs.eq(i).offset().top<height+$(window).scrollTop()){
+						imgs.eq(i).attr("src",imgs.eq(i).data("src"))
+					}else{
+						return
+					}
+				}
+			}
+			$(window).scroll(function(){
+				srcollLoading()
+			})
+			srcollLoading()
+		})
+	</script>
+</html>
