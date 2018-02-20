@@ -427,6 +427,7 @@
 }
 .others-links{
 	position:fixed;
+	z-index:10;
 	right:4px;
 	top:50%;
 	transform:translateY(-50%);
