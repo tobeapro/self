@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>溜了溜了</title>
+</head>
+<style>
+	*{
+		user-select:none;
+	}
+	.tip{
+		position:absolute;
+		left:0;
+		top:-30px;
+		transition:all .4s ease;
+		padding:6px 12px;
+		white-space: nowrap;
+		font-size:20px;
+		font-weight: bold;
+		line-height:30px;
+		opacity: 0;
+		color:#fff;
+		background:rgba(0,0,0,.6);
+		border-radius: 6px;
+	}
+	.tip.show{
+		opacity: 1;
+	}
+	h1{
+		line-height:60px;
+	}
+</style>
+<body>
+	<div style="position: absolute;top:30%;left:50%;transform: translate(-50%);text-align:center">
+		<h1 id="hover">你还有<span id="day"></span>天辞职</h1>
+		<div id="tip" class="tip">辞职日期:2019-3-18 10:00:00</div>
+		<h1 style="color:#ff0000">倒计时-<span id="time"></span></h1>
+	</div>
+</body>
+<script type="text/javascript">
+	(function(){
+		let goalTime=new Date("2019/3/18 10:00:00");
+		console.log('辞职日期:'+goalTime.toLocaleString())
+		function countTime(t){
+			let day=Math.floor(t/1000/60/60/24);
+			let hour=Math.floor(t/1000/60/60%24)<10?'0'+Math.floor(t/1000/60/60%24):Math.floor(t/1000/60/60%24);
+			let minute=Math.floor(t/1000/60%60)<10?'0'+Math.floor(t/1000/60%60):Math.floor(t/1000/60%60);
+			let second=Math.floor(t/1000%60)<10?'0'+Math.floor(t/1000%60):Math.floor(t/1000%60);
+			let ms=Math.floor(t%100);
+			return hour+':'+minute+':'+second
+		}
+		setInterval(()=>{
+			let remain=goalTime-new Date();
+			 document.querySelector("#day").innerText=Math.floor(remain/1000/60/60/24)
+			 document.querySelector("#time").innerText=countTime(remain)
+		},2)
+		document.querySelector("#hover").addEventListener('mouseover',()=>{
+			document.querySelector("#tip").className='tip show'
+		})
+		document.querySelector("#hover").addEventListener('touchstart',()=>{
+			document.querySelector("#tip").className='tip show'
+		})
+		document.querySelector("#hover").addEventListener('mouseleave',()=>{
+			document.querySelector("#tip").className='tip'
+		})
+		document.querySelector("#hover").addEventListener('touchend',()=>{
+			document.querySelector("#tip").className='tip'
+		})
+	})()
+</script>
+</html>
