@@ -1,6 +1,17 @@
 {
     "data": [
         {
+            "url": "#html/http",
+            "title": "http请求小结",
+            "userUrl":"https://github.com/tobeapro/tobeapro.github.io?files=1",
+            "userPic": "img/user.png",
+            "sign": [
+                "js",
+                "self"
+            ],
+            "text": "现在使用http请求的工具或方式主要有两种，fetch和axios,axios是使用XMLHttpRequest封装的，就是我们之前所熟知的ajax的形式，而fetch是后面浏览器新增的原生方法，使用起来差不多。"
+        },
+        {
             "url": "#html/180226A",
             "title": "js对象属性及原型链的一些思考总结",
             "userUrl":"https://github.com/tobeapro/tobeapro.github.io?files=1",
