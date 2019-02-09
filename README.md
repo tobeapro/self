@@ -3,7 +3,7 @@
 ### 你要知道的JavaScript
   
 + [变量提升、函数提升](./docs/varFunc_lift.md)
-+ [隐式转换](./doc/implicit_conversion.md)
++ [隐式转换](./docs/implicit_conversion.md)
  
  ### 友情链接 
 
