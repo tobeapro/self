@@ -1,7 +1,12 @@
-## [博客](http://rrrrrrk.tech/#)
-> 转载已注明，有需要可以在[issues](https://github.com/tobeapro/tobeapro.github.io/issues)里面留言
+## [个人空间](http://rrrrrrk.tech/#)
 
-#### 友情链接 
+### 你要知道的JavaScript
+  
++ [变量提升、函数提升](./docs/varFunc_lift.md)
++ [隐式转换](./doc/implicit_conversion.md)
+ 
+ ### 友情链接 
+
 + [博客地址](https://github.com/tobeapro/tobeapro.github.io)
 + [vue音乐播放器](https://github.com/tobeapro/vue-music-player)
 + [vue移动商城demo](https://github.com/tobeapro/shop-mall-app)
