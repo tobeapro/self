@@ -428,16 +428,18 @@
     box-sizing: content-box;
     background-color: #fff
 }
-.main-right-article code,.main-right-article tt {
+.main-right-article tt {
     padding: 0.2em 0.4em;
     margin: 0;
     font-size: 85%;
     border-radius: 3px
 }
 .main-right-article>p>code{
-	padding:2px;
+	margin: 0 2px;
+    padding: 2px;
     color: #fff;
     background: #07a7f7;
+    border-radius: 2px;
 }
 .back-top{
 	transition:all .4s linear;
