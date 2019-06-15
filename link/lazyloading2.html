@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" href="../img/icon.png">
+	<title>图片懒加载2</title>
+	<meta name="keywords" content="blog,个人博客,note,笔记,懒加载">
+	<meta name="description" content="个人博客网站,技术总结和转载相关文章">
+</head>
+<style>
+	body{
+		background:rgba(0,0,0,.6);
+		text-align: center;
+	}
+	img{
+		width:300px;
+		height:500px;
+	}
+</style>
+<body>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<div>
+		<img src="https://tobeapro.github.io//img/loading.gif" />
+	</div>
+	<script>
+		(function(){
+			function srcollListen(){
+				let isScroll = false
+				let oldTime=new Date().getTime()
+				let timer = null
+				return function(){
+					console.log('isScroll:'+isScroll)
+					let nowTime= new Date().getTime()
+					if(nowTime-oldTime>1000*3){
+						showImg()
+						isScroll = false
+						timer&&clearTimeout(timer)
+						oldTime=nowTime
+
+					}else{
+						if(!isScroll){
+							isScroll = true
+						}
+						timer&&clearTimeout(timer)
+						timer = setTimeout(()=>{
+							isScroll = false
+							oldTime=nowTime
+							showImg()
+						},1000)
+					}
+				}
+			}
+			const limitEmit = srcollListen()
+			function showImg(){
+				console.log('showImg')
+				const imgs = document.querySelectorAll('img');
+				const clientHeight = document.documentElement.clientHeight 
+				for(let i=0;i<imgs.length;i++){
+					if((clientHeight+window.scrollY)>imgs[i].offsetTop){
+						 let index = i?Number(i)+1:''
+						imgs[i].src=`https://tobeapro.github.io/img/photo${index}.png`
+					}
+				}
+			}
+			showImg()
+			window.addEventListener('scroll',limitEmit)
+		})()
+	</script>
+</body>
+</html>
