@@ -61,10 +61,10 @@ console.log('listen on port:'+port)
 #### 3.2 koa-static
 配置静态资源目录，主要是html、css、js和一些静态文资源。如果前端页面和资源在一个单独的文件夹下且资源目录使用的绝对路径的话，需要将项目目录和静态资源的文件夹都设置成静态目录。以下是个人项目目录和具体配置
 
-##### `dist` 打包后的html、css、js
-##### `public` 图片等静态资源
-##### `src` 源码文件夹
-##### `app.js` 入口js
++ dist，打包后的html、css、js
++ public，图片等静态资源
++ src，源码文件夹
++ app.js，入口js
 
 ```javascript
 const koaStatic = require('koa-static');
