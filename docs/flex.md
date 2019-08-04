@@ -121,7 +121,7 @@ flex意为“弹性布局”，任何容器都可以设置成flex布局。
   order: 0(数字,默认为0)
 }
 ```
-#### 3.2 flex-shrink
+#### 3.2 flex-grow
 `flex-grow`属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大
 ```javascript
 .item {

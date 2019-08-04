@@ -4,8 +4,10 @@
 + [变量提升、函数提升](./docs/varFunc_lift.md)
 + [隐式转换](./docs/implicit_conversion.md)
  
-### 杂七杂八
-+ [koa入门使用](./docs/koa_use.md)
+### 所记
++ [flex布局使用](./docs/flex.md)
++ [Koa入门使用](./docs/koa_use.md)
++ [Koa源码阅读](./docs/koa_source.md)
 
 ### 友情链接 
 + [vue音乐播放器](https://github.com/tobeapro/vue-music-player)
