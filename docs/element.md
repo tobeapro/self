@@ -327,7 +327,7 @@
 选中和取消选中
 
 #### 以上为个人根据公司业务写的tree组件，当然可优化的空间还很多，一个人的视野还是很狭窄的，所以我尝试去探索下element团队是如何封装的。
-![9AED312CDE132453BE63C02CEB9E1460.png](amz715.com/public/resource/upload_f926f48af96bb0866975d322284f013b.png)
+![9AED312CDE132453BE63C02CEB9E1460.png](http://amz715.com/public/resource/upload_f926f48af96bb0866975d322284f013b.png)
 这是`tree`组件的文件结构。`index.js`为入口文件，src下的`tree.vue`为组件的主体部分，`tree-node.vue`为节点组件。
 整个组件内容比较多，就不逐行描述了，主要是把几个功能和自己之前写的组件作比对。
 - 控制菜单展开收起
@@ -378,7 +378,7 @@ this.root = this.store.root;
 `fileList`自定义的时候和上传时的文件的关系，为什么我写的多图上传的时候`on-success`回调只触发了一次。。。基于一些疑问来查看一下`upload`组件内部究竟是如何封装的
 
 目录结构
-![20191022205529.png](amz715.com/public/resource/upload_82c7f7859775dc4d238378244698111e.png)
+![20191022205529.png](http://amz715.com/public/resource/upload_82c7f7859775dc4d238378244698111e.png)
 `index.js`为入口文件，`ajax.js`封装一个formData格式上传文件的方法，`upload-dragger.vue`和拖动上传有关的部分，`upload-list.vue`根据不同风格显示的已上传文件列表，其中包含删除和预览的方法。剩下的`index.vue`和`upload.vue`是主要研究的部分。
 
 ### upload.vue
