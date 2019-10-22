@@ -8,6 +8,7 @@
 + [flex布局使用](./docs/flex.md)
 + [Koa入门使用](./docs/koa_use.md)
 + [Koa源码阅读](./docs/koa_source.md)
++ [elementUI组件分析使用](./docs/element.md)
 
 ### 友情链接 
 + [vue音乐播放器](https://github.com/tobeapro/vue-music-player)
